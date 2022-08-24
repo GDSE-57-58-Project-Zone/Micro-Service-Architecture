@@ -25,7 +25,7 @@ public class ItemController {
 
     @GetMapping(path = "/item")
     public List<ItemDTO> getItems() {
-        ItemDTO[] forObject = restTemplate.getForObject("http://localhost:8082/api/v1/item", ItemDTO[].class);
+        ItemDTO[] forObject = restTemplate.getForObject("http://item-service/api/v1/item", ItemDTO[].class);
         return Arrays.asList(forObject);
     }
 }

@@ -23,13 +23,13 @@ public class CustomerController {
 
     @GetMapping(path = "/customer")
     public ResponseEntity getAllCustomers() {
-        CustomerDTO[] forObject = restTemplate.getForObject("http://localhost:8081/api/v1/customer", CustomerDTO[].class);
+        CustomerDTO[] forObject = restTemplate.getForObject("http://customer-service/api/v1/customer", CustomerDTO[].class);
         return new ResponseEntity(Arrays.asList(forObject), HttpStatus.OK);
     }
 
     @PostMapping
     public CustomerDTO saveCustomer(@RequestBody CustomerDTO dto) {
-        ResponseEntity<CustomerDTO> customerDTOResponseEntity = restTemplate.postForEntity("http://localhost:8081/api/v1/customer", dto, CustomerDTO.class);
+        ResponseEntity<CustomerDTO> customerDTOResponseEntity = restTemplate.postForEntity("http://customer-service/api/v1/customer", dto, CustomerDTO.class);
         return customerDTOResponseEntity.getBody();
     }
 

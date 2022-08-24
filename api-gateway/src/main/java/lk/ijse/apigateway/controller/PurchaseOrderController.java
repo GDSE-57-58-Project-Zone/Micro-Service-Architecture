@@ -1,11 +1,11 @@
 package lk.ijse.apigateway.controller;
 
+import lk.ijse.apigateway.dto.CustomerDTO;
 import lk.ijse.apigateway.dto.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -24,11 +24,14 @@ public class PurchaseOrderController {
     private RestTemplate restTemplate;
 
 
+
     @GetMapping(path = "/order")
     public List<OrderDTO> getOrders() {
-        OrderDTO[] forObject = restTemplate.getForObject("http://localhost:8083/api/v1/order", OrderDTO[].class);
+        OrderDTO[] forObject = restTemplate.getForObject("http://order-service/api/v1/order", OrderDTO[].class);
         return Arrays.asList(forObject);
     }
+
+
 
 
 }
