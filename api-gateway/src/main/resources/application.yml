@@ -26,6 +26,10 @@ spring:
           filters:
             - StripPrefix=1
 
+#this is for config client
+  config:
+    import: optional:configserver:http://localhost:8085/
+
 info:
   app:
     name: ${spring.application.name}

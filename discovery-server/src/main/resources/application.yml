@@ -2,6 +2,10 @@ spring:
   application:
     name: discovery-server
 
+#this is for config-client
+  config:
+    import: optional:configserver:http://localhost:8085/
+
 server:
   port: 8761
 
