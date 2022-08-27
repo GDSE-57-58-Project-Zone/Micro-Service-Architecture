@@ -1,5 +1,11 @@
-# micro-service-architecture
+# Micro-Service-Architecture
 Micro Service Architecture
+
+# Features
+<ol>
+<li>Discovery Server Added</li>
+</ol>
+
 
 ### Version
 2.0.0
