@@ -1,4 +1,4 @@
-# micro-service-architecture
+# Micro-Service-Architecture
 Micro Service Architecture
 
 ### Version
