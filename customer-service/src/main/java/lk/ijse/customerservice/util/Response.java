@@ -1,10 +1,8 @@
-package lk.ijse.apigateway.dto;
+package lk.ijse.customerservice.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 /**
  * @author : Sanu Vithanage
@@ -13,7 +11,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order_Details_FK_DTO implements Serializable {
-    private String oid;
-    private String itemCode;
+public class Response {
+   private String message;
+   private Object data;
 }

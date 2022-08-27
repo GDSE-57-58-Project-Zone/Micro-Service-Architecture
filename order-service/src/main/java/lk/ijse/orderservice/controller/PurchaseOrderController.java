@@ -2,6 +2,7 @@ package lk.ijse.orderservice.controller;
 
 import lk.ijse.orderservice.dto.OrderDTO;
 import lk.ijse.orderservice.service.PurchaseOrderService;
+import lk.ijse.orderservice.util.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,30 +25,30 @@ public class PurchaseOrderController {
     @PostMapping
     public ResponseEntity saveOrder(@RequestBody OrderDTO dto) {
         service.addOrder(dto);
-        return new ResponseEntity(dto, HttpStatus.CREATED);
+        return new ResponseEntity(new Response("OK",dto), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
     public ResponseEntity updateOrder(@PathVariable String id, @RequestBody OrderDTO dto) {
         service.updateOrder(dto);
-        return new ResponseEntity(dto, HttpStatus.NO_CONTENT);
+        return new ResponseEntity(new Response("OK",dto), HttpStatus.OK);
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity deleteOrder(@PathVariable String id) {
         service.deleteOrder(id);
-        return new ResponseEntity("Done", HttpStatus.NO_CONTENT);
+        return new ResponseEntity(new Response("OK",id), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity getOrder(@PathVariable String id) {
-        OrderDTO Order = service.getOrder(id);
-        return new ResponseEntity(Order, HttpStatus.OK);
+        OrderDTO order = service.getOrder(id);
+        return new ResponseEntity(new Response("OK",order), HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity getAllOrders() {
         List<OrderDTO> allOrders = service.getAllOrders();
-        return new ResponseEntity(allOrders, HttpStatus.OK);
+        return new ResponseEntity(new Response("OK",allOrders), HttpStatus.OK);
     }
 }

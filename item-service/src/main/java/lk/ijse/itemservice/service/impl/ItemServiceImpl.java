@@ -2,6 +2,7 @@ package lk.ijse.itemservice.service.impl;
 
 import lk.ijse.itemservice.dto.ItemDTO;
 import lk.ijse.itemservice.entity.Item;
+import lk.ijse.itemservice.exception.ValidationException;
 import lk.ijse.itemservice.repo.ItemRepo;
 import lk.ijse.itemservice.service.ItemService;
 import org.modelmapper.ModelMapper;
@@ -28,6 +29,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void addItem(ItemDTO dto) {
+        if ( !repo.existsById(dto.getCode())) throw  new ValidationException("Item already exist..!");
         repo.save(mapper.map(dto, Item.class));
     }
 
@@ -39,17 +41,19 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemDTO getItem(String id) {
-        Item Item = repo.getById(id);
-        return mapper.map(Item, ItemDTO.class);
+        if ( !repo.existsById(id))  throw new ValidationException("No Item for :"+id);
+        return mapper.map(repo.getById(id), ItemDTO.class);
     }
 
     @Override
     public void deleteItem(String id) {
+        if ( !repo.existsById(id)) throw  new ValidationException("Cannot Delete,No Item for :"+id);
         repo.deleteById(id);
     }
 
     @Override
     public void updateItem(ItemDTO dto) {
+        if ( !repo.existsById(dto.getCode())) throw  new ValidationException("Cannot Update,No Item for :"+dto.getCode());
         repo.save(mapper.map(dto, Item.class));
     }
 }

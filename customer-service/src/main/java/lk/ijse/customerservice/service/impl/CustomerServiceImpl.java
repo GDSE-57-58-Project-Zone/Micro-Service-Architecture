@@ -2,6 +2,7 @@ package lk.ijse.customerservice.service.impl;
 
 import lk.ijse.customerservice.dto.CustomerDTO;
 import lk.ijse.customerservice.entity.Customer;
+import lk.ijse.customerservice.exception.ValidationException;
 import lk.ijse.customerservice.repo.CustomerRepo;
 import lk.ijse.customerservice.service.CustomerService;
 import org.modelmapper.ModelMapper;
@@ -28,6 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void addCustomer(CustomerDTO dto) {
+        if (!repo.existsById(dto.getId())) throw new ValidationException("Customer already exist..!");
         repo.save(mapper.map(dto, Customer.class));
     }
 
@@ -39,17 +41,20 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO getCustomer(String id) {
-        Customer customer = repo.getById(id);
-        return mapper.map(customer, CustomerDTO.class);
+        if (!repo.existsById(id)) throw new ValidationException("No customer for :" + id);
+        return mapper.map(repo.getById(id), CustomerDTO.class);
     }
 
     @Override
     public void deleteCustomer(String id) {
+        if (!repo.existsById(id)) throw new ValidationException("Cannot Delete,No customer for :" + id);
         repo.deleteById(id);
     }
 
     @Override
     public void updateCustomer(CustomerDTO dto) {
+        if (!repo.existsById(dto.getId()))
+            throw new ValidationException("Cannot Update,No customer for :" + dto.getId());
         repo.save(mapper.map(dto, Customer.class));
     }
 }
