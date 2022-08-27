@@ -1,1 +1,5 @@
 **/target/
+/api-gateway/api-gateway.iml
+/customer-service/customer-service.iml
+/item-service/item-service.iml
+/order-service/order-service.iml
