@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+info:
+  app:
+    name: ${spring.application.name}
+
+#this is for eureka client
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+    healthcheck:
+      enabled: true
+
+#this is for actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
