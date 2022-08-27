@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-@RefreshScope
 public class ApiGatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApiGatewayApplication.class, args);
