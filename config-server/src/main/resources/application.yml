@@ -10,7 +10,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/sanuv9683/config.git
+          uri: https://github.com/sanuv9683/Micro-Configurations.git
 
 
 #this is for eureka client
