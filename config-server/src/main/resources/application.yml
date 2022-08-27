@@ -10,8 +10,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/sanuv9683/Micro-Configurations.git
-
+          uri: https://github.com/GDSE-57-58-Project-Zone/Microservice-Configurations.git
+        default-label: master
 
 #this is for eureka client
 eureka:
