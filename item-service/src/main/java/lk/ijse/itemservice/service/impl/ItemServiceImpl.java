@@ -29,7 +29,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void addItem(ItemDTO dto) {
-        if ( !repo.existsById(dto.getCode())) throw  new ValidationException("Item already exist..!");
+        if ( repo.existsById(dto.getCode())) throw  new ValidationException("Item already exist..!");
         repo.save(mapper.map(dto, Item.class));
     }
 

@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void addCustomer(CustomerDTO dto) {
-        if (!repo.existsById(dto.getId())) throw new ValidationException("Customer already exist..!");
+        if (repo.existsById(dto.getId())) throw new ValidationException("Customer already exist..!");
         repo.save(mapper.map(dto, Customer.class));
     }
 
