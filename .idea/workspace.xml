@@ -38,11 +38,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "corretto-11",
-    "last_opened_file_path": "/media/sanu/MyComputer/IDE's/Idea/57-58/MicroService-Architecture/Micro-Service-Architecture/order-service",
+    "last_opened_file_path": "/media/sanu/MyComputer/IDE's/Idea/57-58/MicroService-Architecture/Micro-Service-Architecture/item-service/pom.xml",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "build.tools"
   }
 }]]></component>
   <component name="RunManager" selected="Spring Boot.ApiGatewayApplication">
@@ -56,6 +57,13 @@
     <configuration name="CustomerServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="customer-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="lk.ijse.customerservice.CustomerServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscoveryServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="discovery-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="lk.ijse.discoveryserver.DiscoveryServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -83,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661568503905</updated>
-      <workItem from="1661568505763" duration="1144000" />
+      <workItem from="1661568505763" duration="2043000" />
     </task>
     <servers />
   </component>
